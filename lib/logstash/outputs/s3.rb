@@ -123,7 +123,8 @@ class LogStash::Outputs::S3 < LogStash::Outputs::Base
   ## If you do not specify "restore => true" when logstash crashes or is restarted, the files are not sent into the bucket,
   ## for example if you have single Instance.
   config :restore, :validate => :boolean, :default => true
-
+  # S3 force_path_style option
+  config :force_path_style, :validate => :boolean, :default => false
   # The S3 canned ACL to use when putting the file. Defaults to "private".
   config :canned_acl, :validate => ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control", "log-delivery-write"],
          :default => "private"
